@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--Usar la propiedad 'title' para renderizar un titulo de pagina-->
+	<title>
+		<%=title %>
+	</title>
+</head>
+<body>
+	<!--Mostrar mensaje flash-->
+	<% for(var i in messages){ %>
+	<div class="flash"><%= messages[i] %></div>
+	<% } %>
+	<!-- Renderizar el formulario signin -->
+	<form action="/signin" method="post">
+		<div>
+			<label>Usuario:</label>
+			<input type="text" name="username" />
+		</div>
+		<div>
+			<label>Contraseña:</label>
+			<input type="password" name="password" />
+		</div>
+		<div>
+			<input type="submit" value="Identificarse" />
+		</div>
+	</form>
+</body>
+</html>

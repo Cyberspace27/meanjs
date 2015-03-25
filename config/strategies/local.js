@@ -1,9 +1,9 @@
 var passport = require('passport'),
-localStrategy = require('passport-local').Strategy,
+LocalStrategy = require('passport-local').Strategy,
 User = require('mongoose').model('User');
 
 module.exports = function(){
-	passport.use(new localStrategy(function(username, password, done){
+	passport.use(new LocalStrategy(function(username, password, done){
 		User.findOne({
 			username:username
 		}, function(err, user){
@@ -12,11 +12,11 @@ module.exports = function(){
 			}
 			if(!user){
 				return done(null, false,{
-					message: 'Usuaio Desconocido'
+					message: 'Usuario Desconocido'
 				});
 			}
 			if(!user.authenticate(password)){
-				return done(null, false,{
+				return done(null, false, {
 					message: 'Contraseña Invalida'
 				});
 			}

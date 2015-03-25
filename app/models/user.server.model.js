@@ -15,36 +15,39 @@ var mongoose = require('mongoose'),
  		//validar el formato email
  		match:[/.+\@.+\..+/, "Please fill a valid e-mail address"]
  	},
- 	username:{ 
+ 	username: { 
  		type:String,
  		//Confiurar un unico index 'username'
  		unique: true,
  		//validar existenia del valor 'username'
- 		require: 'Username is required',
+ 		required: 'Username is required',
  		//Trim el campo 'username'
  		trim:true
  	},
- 	password:{
+ 	password: {
  		type:String,
  		//Validar el valor length de 'password'
- 		validate:[
+ 		validate: [
  		function(password){
  			return password && password.length > 6;
  		}, 'Password should be longer'
  		]
  	},
- 	salt:{
- 		type:String,
- 		//Valiadr existencia valor Provider
+ 	salt: {
+ 		type: String
+ 	},
+ 	provider:{
+ 		type: String,
+ 		 //Valiadr existencia valor Provider
  		required: 'Provider is required'
  	},
+
  	providerId: String,
- 	providerData:{},
+ 	providerData: {},
  	created: {
  		type: Date,
  		//Crear un valor 'created' por defecto
- 		default:Date.now
-
+ 		default: Date.now
  	}
  });
 //Confiurar la propiedad virtual 'fullname'

@@ -1,9 +1,15 @@
+//Invocar modo JavaScript 'strict'
+'use strict';
+//Cargar las despendecias de modulos
 var passport = require('passport'),
 	mongoose = require('mongoose');
 
-module.exports = function(){
-	var User = mongoose.model('User');
 
+//Definir el metodo de configuracion de passport
+module.exports = function(){
+	//Cargar el modelo 'User'
+	var User = mongoose.model('User');
+	//Usar el metodo 'serializeUser' para serializar la id del usuario
 	passport.serializeUser(function(user, done){
 		done(null, user.id);
 	});
@@ -15,5 +21,7 @@ module.exports = function(){
 			done(err, user);
 		});
 	});
+	
+	//Cargar los archivos de configuracion de estrategias de passport
 	require('./strategies/local.js')();
 };

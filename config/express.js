@@ -5,6 +5,7 @@ var config = require('./config'),
  bodyParser = require('body-parser'),
  methodOverride = require('method-override'),
  session = require('express-session'),
+ flash = require('connect-flash'),
  passport = require('passport');
 //definir el metodo de configuracion de express
 module.exports= function(){
@@ -32,7 +33,7 @@ module.exports= function(){
 	//Configuracion el motor view de a aplicacion y el directorio viwes
 	app.set('views', './app/views');
 	app.set('view engine', 'ejs');
-
+	app.use(flash());
 	app.use(passport.initialize());
 	app.use(passport.session());
 	//Cargar los archivos de enrutamiento 

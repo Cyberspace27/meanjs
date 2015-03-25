@@ -4,7 +4,17 @@
 		<title><%= title %></title>
 	</head>
 	<body>
-		<img src="img/logo.jpg" alt="logo">
-		<h1><%= title %></h1>
+		<!-- - si un usuario es auntenticado, mostrar el nombre comleto del usuario, de no se-->
+
+		<% if(userFullName){ %>
+			<h2>Hola <%=userFullName%> </h2>
+			<a href="/signout">Cerrar Sesion</a>
+		<% } else { %> 
+			<a href="/signup">Crear Cuenta</a>
+			<a href="/signin">Idetificarse</a>
+		<% } %>
+		<br>
+		<!-- load the static image file-->
+		<img src="img/logo.jpg" alt="logo">		
 	</body>
 </html>

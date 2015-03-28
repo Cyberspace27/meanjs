@@ -24,4 +24,5 @@ module.exports = function(){
 	
 	//Cargar los archivos de configuracion de estrategias de passport
 	require('./strategies/local.js')();
+	require('./strategies/google.js')();
 };

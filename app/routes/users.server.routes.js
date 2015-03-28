@@ -22,7 +22,57 @@ module.exports = function(app){
 		failureFlash: true
 
 	}));
+
+	// Configurar las rutas Google OAuth
+
+	app.get('/oauth/google', passport.authenticate('google', {
+		scope:[
+			'https://www.googleapis.com/auth/userinfo.profile',
+			'https://www.googleapis.com/auth/userinfo.email'
+		],
+		failureRedirect: '/signin'
+	}));
+
+	app.get('/oauth/google/callback', passport.authenticate('google', {
+		failureRedirect: '/signin',
+		successRedirect: '/'
+	}));
     
 	//Configurar las route 'signout'
     app.get('/signout', users.signout);
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

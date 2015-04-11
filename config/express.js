@@ -1,3 +1,6 @@
+//Invocar el modo 'strict' de JavaScript mode
+'use strict';
+
 var config = require('./config'),
  express = require('express'),
  morgan = require('morgan'),
@@ -33,6 +36,7 @@ module.exports= function(){
 	//Configuracion el motor view de a aplicacion y el directorio viwes
 	app.set('views', './app/views');
 	app.set('view engine', 'ejs');
+
 	app.use(flash());
 	app.use(passport.initialize());
 	app.use(passport.session());

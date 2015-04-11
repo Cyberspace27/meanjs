@@ -4,7 +4,7 @@ GoogleStrategy = require('passport-google-oauth').OAuth2Strategy,
 config = require('../config'),
 users = require('../../app/controllers/users.server.controller');
 
-module.exports = function(){
+module.exports = function() {
 	passport.use(new GoogleStrategy({
 		clientID: config.google.clientID,
 		clientSecret: config.google.clientSecret,
@@ -16,7 +16,7 @@ module.exports = function(){
 		providerData.accessToken = accessToken;
 		providerData.refreshToken = refreshToken;
 
-		var providersUserProfile = {
+		var providerUserProfile = {
 			firstName: profile.name.givenName,
 			lastName: profile.name.familyName,
 			fullName: profile.displayName,
@@ -26,6 +26,6 @@ module.exports = function(){
 			providerId: profile.id,
 			providerData: providerData
 		};
-		users.saveOAuthUserProfile(req, providersUserProfile, done);
+		users.saveOAuthUserProfile(req, providerUserProfile, done);
 	}));
 };

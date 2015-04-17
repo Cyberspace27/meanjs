@@ -6,8 +6,7 @@
 	<body>
 		<!-- - si un usuario es auntenticado, mostrar el nombre comleto del usuario, de no se-->
 
-		<% if(userFullName){ %>
-			<h2>Hola <%=userFullName%> </h2>
+		<% if (user){ %>
 			<a href="/signout">Cerrar Sesion</a>
 		<% } else { %> 
 			<a href="/signup">Crear Cuenta</a>
@@ -15,6 +14,19 @@
 		<% } %>
 		<br>
 		<!-- load the static image file-->
-		<img src="img/logo.jpg" alt="logo">		
+		<img src="img/logo.jpg" alt="logo">	
+		<section ng-view></section>
+		<script type="text/javascript">
+			window.user = <%- user || 'null' %>;
+		</script>
+		
+		<script type="text/javascript" src="/lib/angular/angular.js"></script>
+		<script type="text/javascript" src="/lib/angular-route/angular-route.js"></script>	
+		<script type="text/javascript" src="/example/example.client.module.js"></script>	
+		<script type="text/javascript" src="/example/controllers/example.client.controller.js"></script>
+		<script type="text/javascript" src="/example/config/example.client.routes.js"></script>
+		<script type="text/javascript" src="/users/users.client.module.js"></script>
+		<script type="text/javascript" src="/users/services/authentication.client.service.js"></script>
+		<script type="text/javascript" src="/application.js"></script>	
 	</body>
 </html>

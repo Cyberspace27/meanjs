@@ -11,7 +11,10 @@ module.exports = function(){
 
 	//Cargar el modelo 'User'
 	require('../app/models/user.server.model');
+
+	//cargar el modelo 'Article'
+	require('../app/models/article.server.model')
 	
-	//Devolver la instancia de conexion a mongo
+	//Devolver la instancia de conexion a mongoose
 	return db;
 };

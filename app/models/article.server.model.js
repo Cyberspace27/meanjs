@@ -1,5 +1,5 @@
 var mongoose = require('mongoose'),
-Schema = mongoose.Schema;
+   Schema = mongoose.Schema;
 
 var ArticleSchema = new Schema({
 	creado: {
@@ -17,7 +17,7 @@ var ArticleSchema = new Schema({
 		default:'',
 		trim:true
 	},
-	creandor: {
+	creador: {
 		type: Schema.ObjectId,
 		ref: 'User'
 	}

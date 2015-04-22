@@ -3,7 +3,7 @@
 
 //Cargar las dependecians del modulo
 var mongoose = require('mongoose'),
-Article = mongoose.model('Article');
+     Article = mongoose.model('Article');
 
 //Crear un nuevo metodo controller para el manejo de errores
 
@@ -41,7 +41,7 @@ exports.create = function(req, res){
 //Crear un nuevo metodo controller que recupera una lista de articulos
 exports.list = function(req, res){
 	//Usar el metodo model 'find' para optener una lista de articulos
-	Article.find().sort('-created').populate('creador' 'firstName lastName fullName'). exec(function(err, articles){
+	Article.find().sort('-created').populate('creador', 'firstName lastName fullName').exec(function(err, articles){
 		if(err){
 			//Si un error ocurre enviar un mensaje de error
 			return res.status(400).send({
@@ -59,7 +59,7 @@ exports.read = function(req, res){
 };
 
 //Crear un nuevo metodo controller que actualiza un articulo existente
-exports.update = function(req. res){
+exports.update = function(req, res){
 	// Obtener el articulo usando el objeto 'request'
 	var article = req.article;
 	//Actualizar los campos articulo
@@ -103,8 +103,8 @@ exports.delete = function(req, res){
 exports.articleByID = function(req, res, next, id){
 	//usar el metodo 'findById' para encontrar un unici ariculo
 	Article.findById(id).populate('creador', 'firstName lastName fullName').exec(function(err, article){
-		if(err).return next(err);
-		if(!article) return next(new Error('Fallo al cargar el articulo' * id));
+		if(err)return next(err);
+		if(!article) return next(new Error('Fallo al cargar el articulo' + id));
 		//Si se un articulo es enconntrado usar el objeto 'request' para pasarlo al siguiente middleware
 		req.article = article;
 		//llamar al siguiente middleware

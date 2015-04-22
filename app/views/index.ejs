@@ -4,15 +4,6 @@
 		<title><%= title %></title>
 	</head>
 	<body>
-		<!-- - si un usuario es auntenticado, mostrar el nombre comleto del usuario, de no se-->
-
-		<% if (user){ %>
-			<a href="/signout">Cerrar Sesion</a>
-		<% } else { %> 
-			<a href="/signup">Crear Cuenta</a>
-			<a href="/signin">Idetificarse</a>
-		<% } %>
-		<br>
 		<!-- load the static image file-->
 		<img src="img/logo.jpg" alt="logo">	
 		<section ng-view></section>
@@ -22,6 +13,11 @@
 		
 		<script type="text/javascript" src="/lib/angular/angular.js"></script>
 		<script type="text/javascript" src="/lib/angular-route/angular-route.js"></script>	
+		<script type="text/javascript" src="/lib/angular-resource/angular-resource.js"></script>
+		<script type="text/javascript" src="/articles/articles.client.module.js"></script>	
+		<script type="text/javascript" src="/articles/controllers/articles.client.controller.js"></script>	
+		<script type="text/javascript" src="/articles/services/articles.client.service.js"></script>	
+		<script type="text/javascript" src="/articles/config/articles.client.routes.js"></script>	
 		<script type="text/javascript" src="/example/example.client.module.js"></script>	
 		<script type="text/javascript" src="/example/controllers/example.client.controller.js"></script>
 		<script type="text/javascript" src="/example/config/example.client.routes.js"></script>

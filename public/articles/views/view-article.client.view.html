@@ -1,0 +1,16 @@
+<!-- La view article -->
+<section data-ng-controller="ArticleController" data-ng-init="findOne()">
+	<h1 data-ng-bind="article.titulo"></h1>
+	<!--Mostrar los botones de edicion para el creador del articulo-->
+	<div data-ng-show="authentication.user._id == article.creador._id">
+		<a href="/#!/articles/{{article._id}}/edit">edit</a>
+		<a href="#" data-ng-click="delete();">delete</a>
+	</div>
+	<small>
+		<em>Postear</em>
+		<em data-ng-bind="article.creado | date:'mediumDate'"></em>
+		<em>By</em>
+		<em data-ng-bind="article.creador.fullName"></em>
+	</small>
+	<p data-ng-bind="article.contenido"></p>
+</section>

@@ -1,0 +1,20 @@
+<!-- La view listar articulos-->
+
+<section data-ng-controller="ArticleController" data-ng-init="find()">
+	<h1>Articulos</h1>
+	<ul>
+		<!-- La lista de articulos-->
+		<li data-ng-repeat="article in articles">
+			<a data-ng-href="#!/articles/{{article._id}}"  data-ng-bind="article.titulo"></a>
+			<br>
+			<small data-ng-bind="article.creado | date:'medium'"></small>
+			<small></small>
+			<small data-ng-bind="article.creador.fullName"></small>
+			<p data-ng-bind="article.contenido"></p>
+		</li>
+	</ul>
+	<!-- Si no hay articulos en la lista, sugerimos al usuario que cree un nuevo articulo-->
+	<div data-ng-hide="!articles || articles.length">
+		Au no hay articulos, ¿Por que no <a href="#!/articles/create">Creas uno</a>
+	</div>
+</section>

@@ -31,7 +31,7 @@ module.exports = function(app) {
   }));
   app.get('/oauth/google/callback', passport.authenticate('google', {
     failureRedirect: '/signin',
-    successRedirect: '/'
+    successRedirect: '/#!'
   }));
 
   //Configurar la route 'signout'

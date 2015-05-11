@@ -5,6 +5,7 @@
 	<ul>
 		<!-- La lista de articulos-->
 		<li data-ng-repeat="article in articles">
+		Si hay articulos
 			<a data-ng-href="#!/articles/{{article._id}}"  data-ng-bind="article.titulo"></a>
 			<br>
 			<small data-ng-bind="article.creado | date:'medium'"></small>

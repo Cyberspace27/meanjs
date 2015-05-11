@@ -27,7 +27,7 @@ angular.module('articles').controller('ArticleController', ['$scope', '$routePar
 		//Crear un nuevo metodo controller para recuperar una lista de articulos
 		$scope.find = function(){
 			//usar el metodo 'query' de article´para enviar una peticion GET apropiada
-			$scope.article = Articles.guery();
+			$scope.articles = Articles.query();
 		};
 		// Crear un nuevo metodo controller para recuperar un unico articulo
 		$scope.findOne = function(){

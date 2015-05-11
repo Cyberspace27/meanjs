@@ -4,7 +4,7 @@
 	<!--Mostrar los botones de edicion para el creador del articulo-->
 	<div data-ng-show="authentication.user._id == article.creador._id">
 		<a href="/#!/articles/{{article._id}}/edit">edit</a>
-		<a href="#" data-ng-click="delete();">delete</a>
+		<a href="#!" data-ng-click="delete();">delete</a>
 	</div>
 	<small>
 		<em>Postear</em>

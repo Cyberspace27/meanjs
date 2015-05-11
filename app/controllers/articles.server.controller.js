@@ -41,7 +41,7 @@ exports.create = function(req, res){
 //Crear un nuevo metodo controller que recupera una lista de articulos
 exports.list = function(req, res){
 	//Usar el metodo model 'find' para optener una lista de articulos
-	Article.find().sort('-created').populate('creador', 'firstName lastName fullName').exec(function(err, articles){
+	Article.find().sort('-created').populate('creador', 'firstName ').exec(function(err, articles){
 		if(err){
 			//Si un error ocurre enviar un mensaje de error
 			return res.status(400).send({
@@ -52,7 +52,7 @@ exports.list = function(req, res){
 			res.json(articles);
 		}
 	});
-}
+};
 
 exports.read = function(req, res){
 	res.json(req.article);
